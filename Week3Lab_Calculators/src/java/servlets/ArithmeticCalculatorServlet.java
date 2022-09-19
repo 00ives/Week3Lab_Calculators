@@ -25,8 +25,37 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String firstValue = request.getParameter("firstNumber");
+        String secondValue = request.getParameter("secondValue");
+        String operator = request.getParameter("operationType");
+        double calculationResult;
+        boolean value1IsNumber = false;
+        boolean value2IsNumber = false;
+        
+        value1IsNumber = verifyNumber(firstValue);
+        value2IsNumber = verifyNumber(firstValue);
+        
+       
+        
+//        if (operator.equals("+") && ){
+//            calculationResult = Double.parseDouble(firstValue) + DoublesecondValue;
+//        }
+        
+        
         
     
+    }
+    protected boolean verifyNumber(String value){
+        boolean isNumber = false;
+        try{
+           Integer.parseInt(value);
+           isNumber = true;
+       }
+       catch(NumberFormatException e){
+           return isNumber;
+       }
+        
+        return isNumber;
     }
 
 }
